@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import MobileNavigation from "./MobileNavigation";
 import Theme from "./Theme";
 
 function Navbar() {
@@ -21,7 +22,8 @@ function Navbar() {
       <p>Global Search</p>
 
       <div className="flex-between gap-5">
-        <Theme/>
+        <Theme />
+        <MobileNavigation />
       </div>
     </nav>
   );
