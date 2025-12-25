@@ -1,0 +1,191 @@
+[
+  {
+    "id": "bb71dde1-ed75-42ae-9d8a-d28b1b7dbbc0",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-24T11:23:51.832Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-2.5-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-24T11:23:51.832Z",
+    "updatedAt": "2025-12-24T11:23:51.832Z"
+  },
+  {
+    "id": "85b849c1-fadd-450c-8d7d-1c633ebab98b",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-24T11:23:51.923Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-2.5-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-24T11:23:51.923Z",
+    "updatedAt": "2025-12-24T11:23:51.923Z"
+  },
+  {
+    "id": "efaef637-8b93-4b40-be74-253f25a78b13",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-24T11:24:03.081Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-2.5-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-24T11:24:03.081Z",
+    "updatedAt": "2025-12-24T11:24:03.081Z"
+  },
+  {
+    "id": "7e2e6224-d4ff-4dd0-8954-b535621bf9fd",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-24T11:24:29.878Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-3-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-24T11:24:29.878Z",
+    "updatedAt": "2025-12-24T11:24:38.942Z"
+  },
+  {
+    "id": "fdc50f4e-d3d8-4af3-ab2e-957cf46439af",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-24T11:24:52.319Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-3-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-24T11:24:52.319Z",
+    "updatedAt": "2025-12-24T11:24:52.319Z"
+  },
+  {
+    "id": "497b070d-545f-4641-9be7-5bcde8b87ee6",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-24T11:25:13.975Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-3-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-24T11:25:13.975Z",
+    "updatedAt": "2025-12-24T11:25:13.975Z"
+  },
+  {
+    "id": "acbfe473-189d-4b18-9498-59ee4993cec0",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-24T11:25:28.774Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-3-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-24T11:25:28.774Z",
+    "updatedAt": "2025-12-24T11:25:28.774Z"
+  },
+  {
+    "id": "ae78249a-7f9c-4abd-b061-3518f9c2fb89",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-25T04:30:04.480Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-3-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-25T04:30:04.480Z",
+    "updatedAt": "2025-12-25T04:30:04.480Z"
+  },
+  {
+    "id": "dcc21774-3c81-4d95-8dbb-e80197d67a31",
+    "title": "New Conversation",
+    "status": "active",
+    "messageCount": 0,
+    "totalTokens": 0,
+    "totalCost": 0,
+    "lastMessageAt": "2025-12-25T04:30:07.906Z",
+    "tags": [],
+    "metadata": {
+      "projectId": "default-project",
+      "model": "gemini-3-flash-beta",
+      "mode": "debugging",
+      "connectedCodebasePath": "f:\\Training\\Nextjs\\devfllow"
+    },
+    "codeContextIds": [],
+    "previous_session_intent": "pure_discussion",
+    "pinnedFilePaths": [],
+    "createdAt": "2025-12-25T04:30:07.906Z",
+    "updatedAt": "2025-12-25T04:30:07.906Z"
+  }
+]
