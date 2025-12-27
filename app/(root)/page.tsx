@@ -1,39 +1,47 @@
 import Link from "next/link";
 
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
-const questions = [
+
+const questions: Question[] = [
   {
     _id: "1",
     title: "How to use Next.js with TypeScript?",
-    description:
-      " I'm new to Next.js and want to know how to set it up with TypeScript.",
     tags: [
       { _id: "1", name: "React" },
       { _id: "2", name: "Nextjs" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image:
+        "https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4855.jpg",
+    },
     upvotes: 10,
     answers: 2,
     views: 50,
-    createdAt: new Date(),
+    createdAt: new Date("2025-11-27"),
   },
   {
     _id: "2",
     title: "How to learn React Query",
-    description:
-      "I want to manage server state in my React application. How can I get started with React Query?",
     tags: [
       { _id: "1", name: "React" },
       { _id: "2", name: "React Query" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image:
+        "https://img.freepik.com/premium-vector/man-avatar-profile-picture-isolated-background-avatar-profile-picture-man_1293239-4855.jpg",
+    },
     upvotes: 12,
     answers: 20,
     views: 150,
-    createdAt: new Date(),
+    createdAt: new Date("2021-06-10T10:00:00Z"),
   },
 ];
 interface ISearchParams {
@@ -41,14 +49,11 @@ interface ISearchParams {
 }
 
 export default async function Home({ searchParams }: ISearchParams) {
-  const { query = "",filter } = await searchParams;
-  console.log("filter",filter);
-  
+  const { query = "", filter } = await searchParams;
+  console.log("filter", filter);
+
   const filteredQuestions = questions.filter((question) =>
-    query
-      ? question.title.toLowerCase().includes(query.toLowerCase()) ||
-        question.description.toLowerCase().includes(query.toLowerCase())
-      : true
+    query ? question.title.toLowerCase().includes(query.toLowerCase()) : true
   );
 
   //  in real app
@@ -80,10 +85,10 @@ export default async function Home({ searchParams }: ISearchParams) {
           otherClacess="flex-1"
         />
       </section>
-      <HomeFilter /> 
+      <HomeFilter />
       <div className="mt-10 flex flex-col w-full gap-6">
         {filteredQuestions.map((question) => (
-          <h1 key={question._id}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>

@@ -1,0 +1,73 @@
+import Link from "next/link";
+import React from "react";
+
+import ROUTES from "@/constants/routes";
+import { getTimeStamp } from "@/lib/utils";
+
+import TagCard from "./TagCard";
+import Metric from "../Metric";
+
+interface IProps {
+  question: Question;
+}
+function QuestionCard({
+  question: { _id, title, tags, author, upvotes, answers, views, createdAt },
+}: IProps) {
+  return (
+    <div className="card-wrapper rounder-[10px] p-9 sm:px-11">
+      <div className="flex flex-col-reverse items-start sm:flex-row justify-between  gap-5">
+        <div>
+          <span className="subtle-regular  text-dark400_light700 line-clamp-1 flex sm:hidden ">
+            {getTimeStamp(createdAt)}
+          </span>
+          <Link href={ROUTES.QUESTION(_id)}>
+            <h3 className="sm:h3-semibold base-semibold text-dark200_light800 line-clamp-1 flex-1">
+              {title}
+            </h3>
+          </Link>
+        </div>
+      </div>
+      <div className="mt-3.5 flex w-full flex-wrap gap-2">
+        {tags.map((tag: Tag) => (
+          <TagCard key={tag._id} _id={tag._id} name={tag.name} compact />
+        ))}
+      </div>
+      <div className="flex-between mt-6 w-full flex-wrap gap-3">
+        <Metric
+          imageUrl={author.image || ""}
+          alt={author.name}
+          value={author.name}
+          title={`● Asked ${getTimeStamp(createdAt)}`}
+          href={ROUTES.PROFILE(author._id)}
+          textStyles="body-medium text-dark400_light700"
+          isAuthor
+        />
+      <div className="flex items-center gap-6 max-sm:flex-wrap max-sm:justify-start">
+        <Metric
+          imageUrl={`/icons/like.svg`}
+          alt="like"
+          value={upvotes}
+          title={"Votes"}
+          textStyles="small-medium text-dark400_light800"
+        />
+        <Metric
+          imageUrl={`/icons/message.svg`}
+          alt="answers"
+          value={answers}
+          title={"Answers"}
+          textStyles="small-medium text-dark400_light800"
+        />
+        <Metric
+          imageUrl={`/icons/eye.svg`}
+          alt="viwes"
+          value={views}
+          title={"Views"}
+          textStyles="small-medium text-dark400_light800"
+        />
+      </div>
+      </div>
+    </div>
+  );
+}
+
+export default QuestionCard;

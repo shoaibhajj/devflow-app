@@ -3,8 +3,6 @@ import { twMerge } from "tailwind-merge";
 
 import { BADGE_CRITERIA } from "@/constants";
 
-
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -165,8 +163,15 @@ export const getTimeStamp = (createdAt: Date): string => {
   }
 
   const diffDays = Math.round(diffHours / 24);
-
-  return `${diffDays} days ago`;
+  if (diffHours < 365) {
+    return `${diffHours} days ago`;
+  }
+  const diffMonths = Math.round(diffDays / 30);
+  if (diffMonths < 12) {
+    return `${diffMonths} months ago`;
+  }
+  const diffYears = Math.round(diffDays / 365);
+  return `${diffYears} years ago`;
 };
 
 export function assignBadges(params: {

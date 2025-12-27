@@ -1,6 +1,6 @@
 "use client";
 import { useQueryState } from "nuqs";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -32,7 +32,7 @@ function HomeFilter() {
   return (
     <div className="mt-10 hiddern flex-wrap gap-3 sm:flex">
       {filters.map((filter) => (
-        <>
+        <Fragment key={filter.value}>
           {filter.name && (
             <Button
               onClick={() => handleTypeClick(filter.value)}
@@ -48,7 +48,7 @@ function HomeFilter() {
               {filter.name}
             </Button>
           )}
-        </>
+        </Fragment>
       ))}
     </div>
   );
