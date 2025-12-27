@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Toaster } from "sonner";
 
 import { auth } from "@/auth";
 import ThemeProvider from "@/context/Theme";
-
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
   variable: "--font-inter",
@@ -51,7 +51,7 @@ async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <NuqsAdapter>{children}</NuqsAdapter>
             <Toaster />
           </ThemeProvider>
         </body>
