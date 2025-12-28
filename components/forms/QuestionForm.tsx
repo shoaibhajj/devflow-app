@@ -71,7 +71,9 @@ function QuestionForm() {
       });
     }
   };
-  const handleCreateQuestion = () => {};
+  const handleCreateQuestion = (data: z.infer<typeof AskQuestionSchema>) => {
+    console.log(data);
+  };
   return (
     <Form {...form}>
       <form
