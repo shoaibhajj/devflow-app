@@ -5,6 +5,8 @@ import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
+import handleError from "@/lib/handlers/error";
+import dbConnect from "@/lib/mongoose";
 
 const questions: Question[] = [
   {
@@ -45,11 +47,21 @@ const questions: Question[] = [
   },
 ];
 
+const test = async () => {
+  try {
+    await dbConnect();
+  } catch (error) {
+    return handleError(error);
+  }
+};
+
 interface ISearchParams {
   searchParams: Promise<{ [key: string]: string }>;
 }
 
 export default async function Home({ searchParams }: ISearchParams) {
+  const result = await test();
+  console.log("result", result);
   const { query = "", filter } = await searchParams;
   console.log("filter", filter);
 
