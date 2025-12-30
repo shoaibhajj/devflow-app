@@ -44,6 +44,7 @@ const questions: Question[] = [
     createdAt: new Date("2021-06-10T10:00:00Z"),
   },
 ];
+
 interface ISearchParams {
   searchParams: Promise<{ [key: string]: string }>;
 }
