@@ -1,6 +1,6 @@
 import { model, models, Schema, Types } from "mongoose";
 
-interface IVote {
+export interface IVote {
   author: Types.ObjectId;
   id: Types.ObjectId;
   type: "question" | "answer";
