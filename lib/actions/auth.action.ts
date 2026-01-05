@@ -9,9 +9,10 @@ import { ActionResponse, ErrorResponse } from "@/types/global";
 
 import action from "../handlers/action";
 import handleError from "../handlers/error";
-import { SignUpSchema } from "../validations";
+import { NotFoundError } from "../http-errors";
+import { SignInSchema, SignUpSchema } from "../validations";
 
-export async function signInUpWithCredentials(
+export async function signUpWithCredentials(
   params: AuthCredentials
 ): Promise<ActionResponse> {
   const validatingResult = await action({ params, schema: SignUpSchema });
@@ -58,5 +59,43 @@ export async function signInUpWithCredentials(
     return handleError(error) as ErrorResponse;
   } finally {
     session.endSession();
+  }
+}
+export async function signInWithCredentials(
+  params: Pick<AuthCredentials, "email" | "password">
+): Promise<ActionResponse> {
+  const validatingResult = await action({ params, schema: SignInSchema });
+
+  if (validatingResult instanceof Error) {
+    return handleError(validatingResult) as ErrorResponse;
+  }
+
+  const { email, password } = validatingResult.params!;
+
+  try {
+    const existingUser = await User.findOne({ email });
+    if (!existingUser) {
+      throw new NotFoundError("User");
+    }
+    const existingAccount = await Account.findOne({
+      provider: "credentials",
+      providerAccountId: email,
+    });
+    if (!existingAccount) {
+      throw new NotFoundError("Account");
+    }
+    const isPasswordValid = await bcrypt.compare(
+      password,
+      existingAccount.password!
+    );
+    if (!isPasswordValid) {
+      throw new Error("Invalid Eamil or Password");
+    }
+
+    await signIn("credentials", { email, password, redirect: false });
+
+    return { success: true };
+  } catch (error) {
+    return handleError(error) as ErrorResponse;
   }
 }
