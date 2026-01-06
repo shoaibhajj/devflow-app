@@ -1,11 +1,16 @@
 "use client";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MDXEditorMethods } from "@mdxeditor/editor";
+import { ReloadIcon } from "@radix-ui/react-icons";
 import dynamic from "next/dynamic";
-import React, { useRef } from "react";
+import { redirect } from "next/navigation";
+import React, { useRef, useTransition } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { toast } from "sonner";
 import z from "zod";
 
+import ROUTES from "@/constants/routes";
+import { createQuestion } from "@/lib/actions/question.action";
 import { AskQuestionSchema } from "@/lib/validations";
 
 import TagCard from "../cards/TagCard";
@@ -26,6 +31,7 @@ const Editor = dynamic(() => import("../editor"), {
   ssr: false,
 });
 function QuestionForm() {
+  const [isPending, startTransition] = useTransition();
   const editorRef = useRef<MDXEditorMethods>(null);
   const form = useForm<z.infer<typeof AskQuestionSchema>>({
     resolver: zodResolver(AskQuestionSchema),
@@ -71,8 +77,26 @@ function QuestionForm() {
       });
     }
   };
-  const handleCreateQuestion = (data: z.infer<typeof AskQuestionSchema>) => {
-    console.log(data);
+  const handleCreateQuestion = async (
+    data: z.infer<typeof AskQuestionSchema>
+  ) => {
+    startTransition(async () => {
+      const result = await createQuestion(data);
+      if (result.success) {
+        toast("Success", {
+          description: "Question created successfully!",
+        });
+        if (result.data) {
+          redirect(ROUTES.QUESTION(result.data._id));
+        } else {
+          toast(`Error ${result.status}`, {
+            description:
+              result.error?.message ||
+              "An error occurred while creating the question.",
+          });
+        }
+      }
+    });
   };
   return (
     <Form {...form}>
@@ -193,8 +217,18 @@ function QuestionForm() {
             )}
           />
           <div className="mt-16 flex justify-end">
-            <Button className="primary-gradient w-fit text-light-900!">
-              Post Your Question
+            <Button
+              disabled={isPending}
+              className="primary-gradient w-fit text-light-900!"
+            >
+              {isPending ? (
+                <>
+                  <ReloadIcon className="mr-2 size-4 animate-spin" />
+                  <span>Submitting</span>
+                </>
+              ) : (
+                <>Post Your Question</>
+              )}
             </Button>
           </div>
         </FieldGroup>
