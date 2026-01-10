@@ -34,7 +34,7 @@ function UserAvatar({
             width={36}
             height={36}
             className="object-cover rounded-full"
-            quality={100}
+            // quality={100}
           />
         ) : (
           <AvatarFallback className="primary-gradient font-space-grotesk font-bold tracking-wider text-white">

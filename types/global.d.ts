@@ -14,6 +14,7 @@ interface Question {
   _id: string;
   title: string;
   tags: Tag[];
+  content: string;
   author: Author;
   upvotes: number;
   answers: number;
@@ -38,7 +39,6 @@ type APIErrorResponse = NextResponse<ErrorResponse>;
 type APIResponse<T = null> = NextResponse<SuccessResponse<T> | ErrorResponse>;
 
 interface RouteParams {
-  params: Promise<Record<string, string>>
-  searchParams: Promise<Record<string, string | string[]>>
-
+  params: Promise<Record<string, string>>;
+  searchParams: Promise<Record<string, string | string[]>>;
 }
